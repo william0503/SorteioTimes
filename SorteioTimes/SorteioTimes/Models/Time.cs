@@ -9,10 +9,19 @@ namespace SorteioTimes.Models
     public class Time : BaseModel
     {
         public IList<string> Jogadores { get; set; }
+        public int LimiteDeJogadores { get; set; }
 
-        public Time()
+        public bool TimeCompleto {
+            get
+            {
+                return !(Jogadores.Count() < LimiteDeJogadores);
+            }
+        }
+
+        public Time(int limiteDeJogadores)
         {
             Jogadores = new List<string>();
+            LimiteDeJogadores = limiteDeJogadores;
         }
 
         public void AdicionarJogador(string jogador)

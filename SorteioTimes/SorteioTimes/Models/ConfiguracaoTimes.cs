@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace SorteioTimes.Models
 {
-    class ConfiguracaoTimes : BaseModel
+    public class ConfiguracaoTimes : BaseModel
     {
         public int NumeroTimes { get; set; }
         public int JogadoresPorTime { get; set; }
+        public int JogadoresTotal { get; set; }
+
+        public int TotalJogadoresValidos
+        {
+            get { return NumeroTimes * JogadoresPorTime; }
+        }
+
+        public int TotalProximosJogadores
+        {
+            get { return JogadoresTotal - TotalJogadoresValidos; }
+        }
 
         public ConfiguracaoTimes()
         {
@@ -17,10 +28,11 @@ namespace SorteioTimes.Models
             JogadoresPorTime = 0;
         }
 
-        public ConfiguracaoTimes(int numeroTimes, int jogadoresPorTime)
+        public ConfiguracaoTimes(int numeroTimes, int jogadoresPorTime, int jogadoresTotal)
         {
             NumeroTimes = numeroTimes;
             JogadoresPorTime = jogadoresPorTime;
+            JogadoresTotal = jogadoresTotal;
         }
     }
 }

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SorteioTimes.Sorteio">
+  <StackLayout Padding="20" Spacing="20">
+    <Label x:Name="Config" />
+    <Label Text="Seu time é:" />
+    <Label x:Name="TimeDefinido" />
+    <Button x:Name="Sortear" Text="Sortear" Clicked="DefinirTime" />
+    <Label x:Name="TimesCompletos" Text="Times Completos!" IsVisible="false" />
+  </StackLayout>
+</ContentPage>
