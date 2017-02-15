@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 
 namespace SorteioTimes
@@ -56,7 +53,14 @@ namespace SorteioTimes
                 {
                     TimeProximos.AdicionarJogador(new Guid().ToString());
                     TimeDefinido.Text = string.Format("Próximo!");
-                    
+
+                    if (_times.All(x => x.TimeCompleto && (TimeProximos == null || TimeProximos.TimeCompleto)))
+                    {
+                        Sortear.IsVisible = false;
+                        TimesCompletos.IsVisible = true;
+
+                    }
+
                     return;                 
                 }
             }
